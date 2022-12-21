@@ -7,27 +7,25 @@ public class SystemForThreePoints extends Vector {
         super();
     }
 
-    public SystemForThreePoints(int x1, int y1, int z1,
-                                int x2, int y2, int z2) {
-        super(x1, y1, z1, x2, y2, z2);
+    public SystemForThreePoints(int x, int y, int z) {
+        super(x, y, z);
     }
 
     @Override
-    public void vectorLength() {
-        double result = Math.sqrt(
-                Math.pow((x2 - x1), 2)
-                        + Math.pow((y2 - y1), 2)
-                        + Math.pow((z2 - z1), 2));
+    public double vectorLength() {
+        double result = Math.sqrt(Math.pow(x, 2) +
+                Math.pow(y, 2) + Math.pow(z, 2));
 
         String s = String.format("%.2f", result);
         System.out.println("vector length -> " + s);
+        return result;
     }
 
     @Override
     public void scalarMultiplication(Vector v1, Vector v2) {
-        int resX = ((v1.x2 - v1.x1) * (v2.x2 - v2.x1));
-        int resY = ((v1.y2 - v1.y1) * (v2.y2 - v2.y1));
-        int resZ = ((v1.z2 - v1.z1) * (v2.z2 - v2.z1));
+        int resX = (v1.x * v2.x);
+        int resY = (v1.y * v2.y);
+        int resZ = (v1.z * v2.z);
         int result = resX + resY + resZ;
 
         System.out.println("scalar multiplication -> " + result);
@@ -51,14 +49,14 @@ public class SystemForThreePoints extends Vector {
 
     @Override
     public void printInformation(Vector v1, Vector v2) {
-        System.out.println(MESSAGE + "\nfirst vector: "+
-                "\nx = " + (v1.x2 - v1.x1) +
-                "\ny = " + (v1.y2 - v1.y1)+
-                "\nz = " + (v1.z2 - v1.z1)+
-                "\nsecond vector: "+
-                "\nx = " + (v2.x2 - v2.x1) +
-                "\ny = " + (v2.y2 - v1.y1)+
-                "\nz = " + (v2.z2 - v2.z1));
+        System.out.println(MESSAGE + "\nfirst vector: " +
+                "\nx = " + v1.x +
+                "\ny = " + v1.y +
+                "\nz = " + v1.z +
+                "\nsecond vector: " +
+                "\nx = " + v2.x +
+                "\ny = " + v2.y +
+                "\nz = " + v2.z);
 
         v1.vectorLength();
         v2.vectorLength();

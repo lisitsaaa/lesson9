@@ -2,7 +2,7 @@ package task1.coordinateSystem;
 
 public interface VectorMethod {
 
-    void vectorLength();
+    double vectorLength();
     void scalarMultiplication(Vector v1, Vector v2);
     void vectorAddition(Vector v1, Vector v2);
 
